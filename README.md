@@ -1,1 +1,1 @@
-Django Document
+Django Documents
