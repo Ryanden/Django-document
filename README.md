@@ -1,1 +1,1 @@
-Django Documents
+Django Documents tutorial
