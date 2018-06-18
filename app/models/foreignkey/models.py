@@ -15,3 +15,14 @@ class Car(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class User(models.Model):
+    name = models.CharField(max_length=50)
+    instructor = models.ForeignKey(
+        'self',
+        on_delete=models.SET_NULL,
+        related_name='students',
+        blank=True,
+        null=True
+    )
