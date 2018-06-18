@@ -15,3 +15,14 @@ class FacebookUser(models.Model):
 
     def __str__(self):
         return self.name
+
+    def show_friends(self):
+        # 이한영의 친구목록
+
+        print(f'{self.name}의 친구목록')
+        friend_list = ''
+
+        for friend in self.friends.all():
+            friend_list += f'- {friend.name}\n'
+        print(len(self.friends.all()), '명')
+        print(friend_list)
