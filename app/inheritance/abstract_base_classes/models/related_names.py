@@ -1,11 +1,10 @@
 from django.db import models
 
-
 __all__ = (
     'RelatedUser',
     'PostBase',
     'PhotoPost',
-    'TextPost'
+    'TextPost',
 )
 
 
@@ -20,9 +19,7 @@ class PostBase(models.Model):
     author = models.ForeignKey(
         RelatedUser,
         on_delete=models.CASCADE,
-        # abstract_base_classes_photo post
-        # related_name='%(app_label)s_%(class)s'
-        related_name='%(class)s'
+        related_name='%(class)ss',
     )
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -31,8 +28,12 @@ class PostBase(models.Model):
 
 
 class PhotoPost(PostBase):
+    # author
+    # related_name: photoposts
     photo_url = models.CharField(max_length=500)
 
 
 class TextPost(PostBase):
+    # author
+    # related_name: textposts
     text = models.TextField()

@@ -1,17 +1,15 @@
 from django.db import models
 
-# Create your models here.
-
 __all__ = (
     'CommonInfo1',
     'CommonInfo2',
     'User',
-    'Student'
+    'Student',
 )
 
 
 class CommonInfo1(models.Model):
-    name = models.CharField(max_length=50, default=None)
+    name = models.CharField(max_length=50)
 
     class Meta:
         abstract = True
@@ -27,10 +25,8 @@ class CommonInfo2(CommonInfo1):
 
 
 class User(CommonInfo1):
-    username = models.CharField(max_length=50, default=None)
+    username = models.CharField(max_length=50)
 
 
 class Student(CommonInfo2):
     cls = models.CharField(max_length=50)
-
-
